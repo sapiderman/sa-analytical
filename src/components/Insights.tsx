@@ -7,7 +7,7 @@ const INSIGHTS = [
   {
     title: "Strategic Alignment",
     tag: "Article",
-    aspectClass: "aspect-[9/16] row-span-2 max-h-[480px]",
+    aspectClass: "aspect-square md:aspect-[9/16] md:max-h-[480px]",
     spanClass: "md:col-span-1 md:row-span-2",
   },
   {
@@ -25,7 +25,7 @@ const INSIGHTS = [
   {
     title: "Organisational Change",
     tag: "Perspective",
-    aspectClass: "aspect-[32/9]",
+    aspectClass: "aspect-video md:aspect-[32/9]",
     spanClass: "md:col-span-2",
   },
 ];
@@ -72,7 +72,7 @@ export default function Insights() {
   return (
     <section
       id="insights"
-      className="bg-bg-raised border-t border-b border-white/[0.06] py-28 px-[5vw]"
+      className="bg-bg-raised border-t border-b border-white/[0.06] py-20 md:py-28 px-[5vw]"
     >
       <motion.div
         ref={ref}

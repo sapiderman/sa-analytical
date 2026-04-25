@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 const TEAM = [
   {
@@ -34,6 +34,7 @@ const TEAM = [
 function TeamMemberCard({ member, index }: { member: (typeof TEAM)[0]; index: number }) {
   const cardRef = useRef(null);
   const cardInView = useInView(cardRef, { once: true, margin: "-40px" });
+  const [expanded, setExpanded] = useState(false);
 
   return (
     <motion.div
@@ -48,7 +49,7 @@ function TeamMemberCard({ member, index }: { member: (typeof TEAM)[0]; index: nu
       className="group flex flex-col border border-white/[0.06] rounded-[var(--radius)] overflow-hidden bg-bg-card transition-all duration-350 hover:border-accent/30 hover:-translate-y-1 hover:shadow-[0_16px_48px_rgba(0,0,0,0.3),0_0_0_1px_rgba(201,168,76,0.14)]"
     >
       {/* Portrait */}
-      <div className="relative w-full aspect-[3/4] bg-bg-card overflow-hidden">
+      <div className="relative w-full aspect-square sm:aspect-[3/4] bg-bg-card overflow-hidden">
         <Image
           src={member.image}
           alt={member.name}
@@ -57,17 +58,24 @@ function TeamMemberCard({ member, index }: { member: (typeof TEAM)[0]; index: nu
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
         />
       </div>
-      <div className="p-5">
+      <div className="p-5 sm:p-6">
         <h3 className="font-head font-bold text-[0.96rem] tracking-[0.04em] mb-1">
           {member.name}
         </h3>
         <p className="text-[0.72rem] tracking-[0.12em] uppercase text-accent mb-3">
           {member.title}
         </p>
-        <p className="text-[0.82rem] text-text-secondary leading-[1.6] font-light">
+        <p className={`text-[0.82rem] text-text-secondary leading-[1.6] font-light ${!expanded ? "line-clamp-3 sm:line-clamp-none" : ""}`}>
           {member.bio}
         </p>
       </div>
+      {/* Read more toggle for mobile */}
+      <button
+        onClick={() => setExpanded(!expanded)}
+        className="text-[0.72rem] text-accent tracking-[0.1em] uppercase px-5 pb-4 sm:hidden cursor-pointer text-left w-full"
+      >
+        {expanded ? "Read less" : "Read more"}
+      </button>
     </motion.div>
   );
 }
@@ -77,7 +85,7 @@ export default function Team() {
   const isInView = useInView(ref, { once: true, margin: "-40px" });
 
   return (
-    <section id="team" className="bg-bg py-28 px-[5vw]">
+    <section id="team" className="bg-bg py-20 md:py-28 px-[5vw]">
       <motion.div
         ref={ref}
         initial={{ opacity: 0, y: 30 }}

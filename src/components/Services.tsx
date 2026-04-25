@@ -95,7 +95,7 @@ export default function Services() {
   const isInView = useInView(ref, { once: true, margin: "-40px" });
 
   return (
-    <section id="services" className="bg-bg py-28 px-[5vw]">
+    <section id="services" className="bg-bg py-20 md:py-28 px-[5vw]">
       <motion.div
         ref={ref}
         initial={{ opacity: 0, y: 30 }}

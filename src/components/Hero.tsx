@@ -7,10 +7,10 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative flex flex-col items-center justify-center min-h-screen text-center px-[5vw] pt-32 pb-24 overflow-hidden"
+      className="relative flex flex-col items-center justify-center min-h-screen text-center px-[5vw] pt-24 pb-16 sm:pt-32 sm:pb-24 overflow-hidden"
     >
       {/* Radial glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-[radial-gradient(circle,rgba(201,168,76,0.10)_0%,rgba(232,201,122,0.04)_45%,transparent_70%)] animate-pulse-glow pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] h-[340px] sm:w-[500px] sm:h-[500px] md:w-[700px] md:h-[700px] rounded-full bg-[radial-gradient(circle,rgba(201,168,76,0.10)_0%,rgba(232,201,122,0.04)_45%,transparent_70%)] animate-pulse-glow pointer-events-none" />
 
       {/* Diagonal lines */}
       <div className="absolute inset-0 pointer-events-none bg-[repeating-linear-gradient(-45deg,transparent_0px,transparent_60px,rgba(201,168,76,0.02)_60px,rgba(201,168,76,0.02)_61px)]" />

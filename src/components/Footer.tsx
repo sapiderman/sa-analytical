@@ -29,7 +29,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <ul className="flex gap-8">
+        <ul className="flex gap-6 sm:gap-8 flex-wrap">
           <li>
             <a
               href="#services"

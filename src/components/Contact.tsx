@@ -16,7 +16,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="bg-bg-raised border-t border-white/[0.06] py-28 px-[5vw]"
+      className="bg-bg-raised border-t border-white/[0.06] py-20 md:py-28 px-[5vw]"
     >
       <motion.div
         ref={ref}
