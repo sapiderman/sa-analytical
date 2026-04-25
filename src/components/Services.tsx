@@ -65,7 +65,7 @@ function ServiceCard({ service, index }: { service: (typeof SERVICES)[0]; index:
       variants={cardVariants}
       initial="hidden"
       animate={cardInView ? "visible" : "hidden"}
-      className="group relative p-8 md:p-11 bg-bg-card overflow-hidden transition-colors duration-400 hover:bg-accent/[0.03]"
+      className="group relative p-6 sm:p-8 md:p-11 bg-bg-card overflow-hidden transition-colors duration-400 hover:bg-accent/[0.03]"
     >
       {/* Hover gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-accent/7 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
@@ -73,16 +73,16 @@ function ServiceCard({ service, index }: { service: (typeof SERVICES)[0]; index:
       <div className="absolute -inset-px border border-transparent group-hover:border-accent/30 group-hover:shadow-[inset_0_0_40px_rgba(201,168,76,0.05)] transition-all duration-400 pointer-events-none" />
 
       <div className="relative z-10">
-        <div className="w-11 h-11 border border-white/[0.06] rounded-[10px] flex items-center justify-center mb-7 transition-all duration-400 group-hover:border-accent/45 group-hover:shadow-[0_0_16px_rgba(201,168,76,0.18)]">
+        <div className="w-10 h-10 sm:w-11 sm:h-11 border border-white/[0.06] rounded-[10px] flex items-center justify-center mb-5 sm:mb-7 transition-all duration-400 group-hover:border-accent/45 group-hover:shadow-[0_0_16px_rgba(201,168,76,0.18)]">
           {service.icon}
         </div>
-        <h3 className="font-head font-bold text-[1.1rem] tracking-[0.04em] mb-3">
+        <h3 className="font-head font-bold text-[1.05rem] sm:text-[1.1rem] tracking-[0.04em] mb-2 sm:mb-3">
           {service.title}
         </h3>
-        <p className="text-[0.9rem] text-text-secondary leading-[1.65] font-light">
+        <p className="text-[0.85rem] sm:text-[0.9rem] text-text-secondary leading-[1.65] font-light">
           {service.description}
         </p>
-        <span className="absolute bottom-7 right-7 font-head text-[0.7rem] tracking-[0.14em] text-text-muted">
+        <span className="absolute bottom-5 right-5 sm:bottom-7 sm:right-7 font-head text-[0.65rem] sm:text-[0.7rem] tracking-[0.14em] text-text-muted">
           {service.num}
         </span>
       </div>
@@ -95,21 +95,21 @@ export default function Services() {
   const isInView = useInView(ref, { once: true, margin: "-40px" });
 
   return (
-    <section id="services" className="bg-bg py-20 md:py-28 px-[5vw]">
+    <section id="services" className="bg-bg py-20 md:py-28 px-5 sm:px-[5vw]">
       <motion.div
         ref={ref}
         initial={{ opacity: 0, y: 30 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
       >
-        <div className="inline-flex items-center gap-2 text-[0.68rem] tracking-[0.22em] uppercase text-accent mb-5">
-          <span className="w-[18px] h-px bg-accent" />
+        <div className="inline-flex items-center gap-2 text-[0.64rem] sm:text-[0.68rem] tracking-[0.22em] uppercase text-accent mb-4 sm:mb-5">
+          <span className="w-[14px] sm:w-[18px] h-px bg-accent" />
           What We Do
         </div>
-        <h2 className="font-head font-bold text-[clamp(1.9rem,3.5vw,3rem)] leading-[1.15] tracking-[-0.02em] max-w-[520px] mb-4">
+        <h2 className="font-head font-bold text-[clamp(1.7rem,4vw,3rem)] leading-[1.15] tracking-[-0.02em] max-w-[520px] mb-3 sm:mb-4">
           Three Disciplines. One Firm.
         </h2>
-        <p className="text-text-secondary max-w-[460px] font-light mb-14">
+        <p className="text-text-secondary max-w-[460px] font-light mb-10 sm:mb-14">
           Integrated expertise delivered with analytical precision — tailored to the complexity of your challenge.
         </p>
       </motion.div>

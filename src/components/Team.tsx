@@ -64,21 +64,21 @@ function TeamMemberCard({ member, index }: { member: (typeof TEAM)[0]; index: nu
           />
         </picture>
       </div>
-      <div className="p-5 sm:p-6">
-        <h3 className="font-head font-bold text-[0.96rem] tracking-[0.04em] mb-1">
+      <div className="p-4 sm:p-5 md:p-6">
+        <h3 className="font-head font-bold text-[0.92rem] sm:text-[0.96rem] tracking-[0.04em] mb-1">
           {member.name}
         </h3>
-        <p className="text-[0.72rem] tracking-[0.12em] uppercase text-accent mb-3">
+        <p className="text-[0.68rem] sm:text-[0.72rem] tracking-[0.12em] uppercase text-accent mb-2 sm:mb-3">
           {member.title}
         </p>
-        <p className={`text-[0.82rem] text-text-secondary leading-[1.6] font-light ${!expanded ? "line-clamp-3 sm:line-clamp-none" : ""}`}>
+        <p className={`text-[0.78rem] sm:text-[0.82rem] text-text-secondary leading-[1.6] font-light ${!expanded ? "line-clamp-3 sm:line-clamp-none" : ""}`}>
           {member.bio}
         </p>
       </div>
       {/* Read more toggle for mobile */}
       <button
         onClick={() => setExpanded(!expanded)}
-        className="text-[0.72rem] text-accent tracking-[0.1em] uppercase px-5 pb-4 sm:hidden cursor-pointer text-left w-full"
+        className="text-[0.72rem] text-accent tracking-[0.1em] uppercase px-4 sm:px-5 pb-3 sm:pb-4 sm:hidden border-t border-white/[0.04] text-left w-full py-3"
       >
         {expanded ? "Read less" : "Read more"}
       </button>
@@ -91,26 +91,26 @@ export default function Team() {
   const isInView = useInView(ref, { once: true, margin: "-40px" });
 
   return (
-    <section id="team" className="bg-bg py-20 md:py-28 px-[5vw]">
+    <section id="team" className="bg-bg py-20 md:py-28 px-5 sm:px-[5vw]">
       <motion.div
         ref={ref}
         initial={{ opacity: 0, y: 30 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
       >
-        <div className="inline-flex items-center gap-2 text-[0.68rem] tracking-[0.22em] uppercase text-accent mb-5">
-          <span className="w-[18px] h-px bg-accent" />
+        <div className="inline-flex items-center gap-2 text-[0.64rem] sm:text-[0.68rem] tracking-[0.22em] uppercase text-accent mb-4 sm:mb-5">
+          <span className="w-[14px] sm:w-[18px] h-px bg-accent" />
           Our Team
         </div>
-        <h2 className="font-head font-bold text-[clamp(1.9rem,3.5vw,3rem)] leading-[1.15] tracking-[-0.02em] max-w-[520px] mb-4">
+        <h2 className="font-head font-bold text-[clamp(1.7rem,4vw,3rem)] leading-[1.15] tracking-[-0.02em] max-w-[520px] mb-3 sm:mb-4">
           Who You Work With
         </h2>
-        <p className="text-text-secondary max-w-[460px] font-light mb-14">
+        <p className="text-text-secondary max-w-[460px] font-light mb-10 sm:mb-14">
           Senior practitioners — no juniors proxying for partners. You always work directly with our consultants.
         </p>
       </motion.div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-5">
         {TEAM.map((member, i) => (
           <TeamMemberCard key={member.name} member={member} index={i} />
         ))}
