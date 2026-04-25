@@ -1,6 +1,9 @@
 [build]
-  command = "npm run build"
+  command = "yarn build"
   publish = "out"
+
+  # Ensure Netlify uses Yarn
+  environment = { NETLIFY_USE_YARN = "true" }
 
 # Next.js static export — all routes fall back to index.html
 [[redirects]]
