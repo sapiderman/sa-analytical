@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 
@@ -8,25 +7,29 @@ const TEAM = [
   {
     name: "Ekci Suyapno",
     title: "Founder & Principal Consultant",
-    image: "/images/team/ekci.png",
+    image: "/images/team/ekci.webp",
+    fallback: "/images/team/ekci.png",
     bio: "Senior consultant with deep experience in strategy, facilitation, and analytical work across complex environments. Brings a calm, practical approach to helping organisations clarify priorities, strengthen collaboration, and move forward with confidence.",
   },
   {
     name: "Stephen Williams",
     title: "Head of Business Intelligence",
-    image: "/images/team/stephen.png",
+    image: "/images/team/stephen.webp",
+    fallback: "/images/team/stephen.png",
     bio: "Senior leader with more than 20 years of management experience across complex operational environments. Brings expertise in business intelligence, strategic analysis and organisational leadership, with a strong focus on improving decision-making and organisational performance.",
   },
   {
     name: "Elisabeth Ibscher",
     title: "Facilitator, Mediator & Coach",
-    image: "/images/team/elisabeth.png",
+    image: "/images/team/elisabeth.webp",
+    fallback: "/images/team/elisabeth.png",
     bio: "Elisabeth Ibscher is a facilitator, mediator and coach with over two decades of international experience across peacebuilding, governance and social impact. She supports organisations and teams through programme strategy, evaluation and organisational change, helping them navigate complexity, strengthen collaboration and move from insight to action.",
   },
   {
     name: "Simon Yazgi",
     title: "Facilitator, Trainer & Conflict Manager",
-    image: "/images/team/simon.png",
+    image: "/images/team/simon.webp",
+    fallback: "/images/team/simon.png",
     bio: "Simon Yazgi is an expert facilitator, trainer and conflict manager with extensive experience supporting teams and organisations through complex challenges. He helps clients strengthen collaboration, navigate sensitive dynamics and build practical solutions that move people and processes forward.",
   },
 ];
@@ -50,13 +53,16 @@ function TeamMemberCard({ member, index }: { member: (typeof TEAM)[0]; index: nu
     >
       {/* Portrait */}
       <div className="relative w-full aspect-square sm:aspect-[3/4] bg-bg-card overflow-hidden">
-        <Image
-          src={member.image}
-          alt={member.name}
-          fill
-          className="object-cover grayscale contrast-[1.1] transition-all duration-500 group-hover:scale-105 group-hover:grayscale-0 group-hover:contrast-100"
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-        />
+        <picture>
+          <source srcSet={member.image} type="image/webp" />
+          <img
+            src={member.fallback}
+            alt={member.name}
+            loading="lazy"
+            decoding="async"
+            className="absolute inset-0 w-full h-full object-cover grayscale contrast-[1.1] transition-all duration-500 group-hover:scale-105 group-hover:grayscale-0 group-hover:contrast-100"
+          />
+        </picture>
       </div>
       <div className="p-5 sm:p-6">
         <h3 className="font-head font-bold text-[0.96rem] tracking-[0.04em] mb-1">
